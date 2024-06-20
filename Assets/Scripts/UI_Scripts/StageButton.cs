@@ -20,7 +20,7 @@ public class StageButton : MonoBehaviour
 
     void UpdateButtonState()
     {
-        if (stageIndex > 0 && !GameManager.Instance.IsStageCleared(stageIndex - 1))
+        if (stageIndex > 0 && !StageManager.Instance.IsStageCleared(stageIndex - 1))
         {
             button.interactable = false;
             buttonImage.sprite = lockedSprite;

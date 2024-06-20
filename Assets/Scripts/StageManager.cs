@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class StageManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    public static StageManager Instance { get; private set; }
 
     private bool[] stageCleared;
 
