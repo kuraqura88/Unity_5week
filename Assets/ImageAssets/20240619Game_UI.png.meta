@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc728c5bd2a2f844c9cdb452922d3cf0
+guid: 1c5738f664d2c8845ae2daf6c87727dd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -149,12 +149,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 20240619Game_UI_0
+      name: 20240619Game_UI 1_0
       rect:
         serializedVersion: 2
         x: 8
         y: 313
-        width: 104
+        width: 105
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -163,19 +163,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57c0bc688698dcb41829e7df6f5e4f2c
-      internalID: 272720002
+      spriteID: cbc308da3c77ed3488658b790de175ba
+      internalID: 825850847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_1
+      name: 20240619Game_UI 1_1
       rect:
         serializedVersion: 2
         x: 117
         y: 313
-        width: 104
+        width: 105
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -184,19 +184,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 013181b5932c3d049a04d42637e022e4
-      internalID: 1909522111
+      spriteID: 42c650e1db71e8d4ba6ce59461c3285a
+      internalID: 488050544
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_2
+      name: 20240619Game_UI 1_2
       rect:
         serializedVersion: 2
         x: 228
         y: 313
-        width: 104
+        width: 105
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -205,14 +205,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 812adb5a327e5984e9aba4940911e3a7
-      internalID: 738587229
+      spriteID: 63a8088307ed17b4bbe6a5a2389ba933
+      internalID: -1904941974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_3
+      name: 20240619Game_UI 1_3
       rect:
         serializedVersion: 2
         x: 346
@@ -226,19 +226,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42e53925956ad48498adb7a466eb9b0c
-      internalID: 1998505670
+      spriteID: 130bc1f7b5036a141a1ada110cc67952
+      internalID: -1310141757
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_4
+      name: 20240619Game_UI 1_4
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 194
+        width: 161
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe81d1247cb947e449fd9f98597e89f3
+      internalID: -389020139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20240619Game_UI 1_5
       rect:
         serializedVersion: 2
         x: 8
         y: 269
-        width: 104
+        width: 105
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -247,19 +268,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36b66fff498450f47b72dde14d189fef
-      internalID: 870996500
+      spriteID: 4446c9e3d148c584d920a329cd70b733
+      internalID: 90961780
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_5
+      name: 20240619Game_UI 1_6
       rect:
         serializedVersion: 2
         x: 117
         y: 269
-        width: 104
+        width: 105
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -268,19 +289,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c320f087139c6d843bf80265e741f584
-      internalID: 949863516
+      spriteID: 00b054118f65b9f4fb6c0d96c6250958
+      internalID: -1033342697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_6
+      name: 20240619Game_UI 1_7
       rect:
         serializedVersion: 2
         x: 228
         y: 269
-        width: 104
+        width: 105
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -289,14 +310,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dee77a641938a84c84da76f984e4402
-      internalID: 743482438
+      spriteID: 58a92fb4f5d44a244bc67ef5cdd7cb60
+      internalID: 2083164502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_7
+      name: 20240619Game_UI 1_8
       rect:
         serializedVersion: 2
         x: 346
@@ -310,19 +331,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 711e09c8f4cf6424682854b23f416327
-      internalID: -1148257767
+      spriteID: 2cdef94b2521cce418c476dbfe01acda
+      internalID: 436191034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_8
+      name: 20240619Game_UI 1_9
       rect:
         serializedVersion: 2
         x: 8
         y: 227
-        width: 104
+        width: 105
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -331,19 +352,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 800f678931866874c9e219d6c1487d1c
-      internalID: -23726501
+      spriteID: f38d88c43c9496a4587600ec574c7b54
+      internalID: 1196187716
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_9
+      name: 20240619Game_UI 1_10
       rect:
         serializedVersion: 2
         x: 117
         y: 226
-        width: 104
+        width: 105
         height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -352,14 +373,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7fdc533629d9c8142b0aaaeee2eb7267
-      internalID: 572087077
+      spriteID: f809dd8b56cb08743814cba4ec2d94d4
+      internalID: 1191432263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_10
+      name: 20240619Game_UI 1_11
       rect:
         serializedVersion: 2
         x: 8
@@ -373,18 +394,81 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7833325301f9284cbbdefad519a4815
-      internalID: -1181900187
+      spriteID: 7d251a1707534834fb7821a80135da9b
+      internalID: 997628912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_11
+      name: 20240619Game_UI 1_12
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 184
+        width: 105
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 507e128923684e449a3045745166c4bf
+      internalID: 1295548531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20240619Game_UI 1_13
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 116
+        width: 149
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de709b7221896384bb9240aa5cdc32a4
+      internalID: -1240189615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20240619Game_UI 1_14
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 141
+        width: 105
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94efe0290b566c943aff9a5b9df3498d
+      internalID: 1512138403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20240619Game_UI 1_15
       rect:
         serializedVersion: 2
         x: 8
-        y: 153
+        y: 102
         width: 302
         height: 28
       alignment: 0
@@ -394,18 +478,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e601b529a3d5be4fa9341766ec5dc44
-      internalID: 1293931075
+      spriteID: da40885738e6e134b8c397ae831c8b4f
+      internalID: 1507463053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 20240619Game_UI_12
+      name: 20240619Game_UI 1_16
       rect:
         serializedVersion: 2
         x: 11
-        y: 129
+        y: 78
         width: 296
         height: 20
       alignment: 0
@@ -415,8 +499,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b15b07c6068c2d4893b8bfe3a307e21
-      internalID: 1758175192
+      spriteID: 443604f28d08b23429350d752fd31bc0
+      internalID: 1858118052
       vertices: []
       indices: 
       edges: []
@@ -432,19 +516,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      20240619Game_UI_0: 272720002
-      20240619Game_UI_1: 1909522111
-      20240619Game_UI_10: -1181900187
-      20240619Game_UI_11: 1293931075
-      20240619Game_UI_12: 1758175192
-      20240619Game_UI_2: 738587229
-      20240619Game_UI_3: 1998505670
-      20240619Game_UI_4: 870996500
-      20240619Game_UI_5: 949863516
-      20240619Game_UI_6: 743482438
-      20240619Game_UI_7: -1148257767
-      20240619Game_UI_8: -23726501
-      20240619Game_UI_9: 572087077
+      20240619Game_UI 1_0: 825850847
+      20240619Game_UI 1_1: 488050544
+      20240619Game_UI 1_10: 1191432263
+      20240619Game_UI 1_11: 997628912
+      20240619Game_UI 1_12: 1295548531
+      20240619Game_UI 1_13: -1240189615
+      20240619Game_UI 1_14: 1512138403
+      20240619Game_UI 1_15: 1507463053
+      20240619Game_UI 1_16: 1858118052
+      20240619Game_UI 1_2: -1904941974
+      20240619Game_UI 1_3: -1310141757
+      20240619Game_UI 1_4: -389020139
+      20240619Game_UI 1_5: 90961780
+      20240619Game_UI 1_6: -1033342697
+      20240619Game_UI 1_7: 2083164502
+      20240619Game_UI 1_8: 436191034
+      20240619Game_UI 1_9: 1196187716
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
