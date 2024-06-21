@@ -1,3 +1,4 @@
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -6,7 +7,8 @@ public class ClickEvent : MonoBehaviour
 {
     public UpgradePower upgradePower;
 
-    public GameObject sword1;
+    //public GameObject sword1;
+    public GameObject[] swords;
 
     public void OnMouse(InputValue value)
     {
@@ -22,21 +24,24 @@ public class ClickEvent : MonoBehaviour
                 && hit.collider.gameObject == gameObject)
             {
                 // ※ 스테이지에 따른 변동 필요
-                Village1();
+                Village();
             }
         }
     }
 
-    private void Village1()
+    private void Village()
     {
-        if (sword1.transform.position.y < 0f)
+        for (int i = 0; i < swords.Length; i++)
         {
-            sword1.transform.position += new Vector3(0f, upgradePower.power, 0f);
-        }
-        else
-        {
-            sword1.transform.position = new Vector3(0f, 0f, 0f);
-            //미니 게임 이동
+            if (swords[i].transform.position.y < 0f)
+            {
+                swords[i].transform.position += new Vector3(0f, upgradePower.power, 0f);
+            }
+            else
+            {
+                swords[i].transform.position = new Vector3(0f, 0f, 0f);
+                //미니 게임 이동
+            }
         }
     }
 }
