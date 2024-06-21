@@ -1,12 +1,14 @@
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class ClickEvent : MonoBehaviour
 {
-    public int count = 0;
-
     public UpgradePower upgradePower;
+
+    //public GameObject sword1;
+    public GameObject[] swords;
 
     public void OnMouse(InputValue value)
     {
@@ -21,11 +23,25 @@ public class ClickEvent : MonoBehaviour
             if (hit.collider != null 
                 && hit.collider.gameObject == gameObject)
             {
-                count += upgradePower.power;
-                Debug.Log(count);
+                // ※ 스테이지에 따른 변동 필요
+                Village();
             }
         }
     }
 
-    //검 뽑고 난 뒤 애니메이션이나 씬 이동
+    private void Village()
+    {
+        for (int i = 0; i < swords.Length; i++)
+        {
+            if (swords[i].transform.position.y < 0f)
+            {
+                swords[i].transform.position += new Vector3(0f, upgradePower.power, 0f);
+            }
+            else
+            {
+                swords[i].transform.position = new Vector3(0f, 0f, 0f);
+                //미니 게임 이동
+            }
+        }
+    }
 }
