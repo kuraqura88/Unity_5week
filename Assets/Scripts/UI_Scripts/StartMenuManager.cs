@@ -18,17 +18,20 @@ public class StartMenuManager : MonoBehaviour
 
     void OnStartButtonClicked()
     {
+        SoundManager.Instance.PlayButtonClickSound();
         // 게임 시작 로직
         SceneManager.LoadScene("GameScene");
     }
 
     void OnLoadButtonClicked()
     {
+        SoundManager.Instance.PlayButtonClickSound();
         //저장 데이터 불러오기 로직
     }
 
     void OnExitButtonClicked()
     {
+        SoundManager.Instance.PlayButtonClickSound();
         // 게임 종료 로직
         Application.Quit();
     }

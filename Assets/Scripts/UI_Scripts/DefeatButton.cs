@@ -16,11 +16,13 @@ public class DefeatButton : MonoBehaviour
 
     void OnRetryButtonClicked()
     {
+        SoundManager.Instance.PlayButtonClickSound();
         SceneManager.LoadScene("LDH_Scene");
     }
 
     void OnExitButtonClicked()
     {
+        SoundManager.Instance.PlayButtonClickSound();
         // 게임 종료 로직
         Application.Quit();
     }

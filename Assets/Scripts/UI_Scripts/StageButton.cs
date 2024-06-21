@@ -16,6 +16,7 @@ public class StageButton : MonoBehaviour
         button = GetComponent<Button>();
         buttonImage = GetComponent<Image>();
         UpdateButtonState();
+        button.onClick.AddListener(OnButtonClick);
     }
 
     void UpdateButtonState()
@@ -30,5 +31,10 @@ public class StageButton : MonoBehaviour
             button.interactable = true;
             buttonImage.sprite = unlockedSprite;
         }
+    }
+
+    void OnButtonClick()
+    {
+        SoundManager.Instance.PlayButtonClickSound();
     }
 }

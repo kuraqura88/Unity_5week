@@ -18,9 +18,17 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         // 버튼에 클릭 이벤트 리스너 추가
-        enhanceButton.onClick.AddListener(() => ToggleTargetObject(enhanceBtnObject));
-        villageButton.onClick.AddListener(() => ToggleTargetObject(villageBtnObject));
-        configButton.onClick.AddListener(() => ToggleTargetObject(configBtnObject));
+        enhanceButton.onClick.AddListener(() => OnButtonClicked(enhanceBtnObject));
+        villageButton.onClick.AddListener(() => OnButtonClicked(villageBtnObject));
+        configButton.onClick.AddListener(() => OnButtonClicked(configBtnObject));
+    }
+
+    void OnButtonClicked(GameObject targetObject)
+    {
+        // 버튼 클릭 사운드 재생
+        SoundManager.Instance.PlayButtonClickSound();
+
+        ToggleTargetObject(targetObject);
     }
 
     void ToggleTargetObject(GameObject targetObject)
