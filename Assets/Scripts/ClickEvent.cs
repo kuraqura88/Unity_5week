@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class ClickEvent : MonoBehaviour
 {
-    public int count = 0;
-
     public UpgradePower upgradePower;
+
+    public GameObject sword1;
 
     public void OnMouse(InputValue value)
     {
@@ -21,11 +21,22 @@ public class ClickEvent : MonoBehaviour
             if (hit.collider != null 
                 && hit.collider.gameObject == gameObject)
             {
-                count += upgradePower.power;
-                Debug.Log(count);
+                // ※ 스테이지에 따른 변동 필요
+                Village1();
             }
         }
     }
 
-    //검 뽑고 난 뒤 애니메이션이나 씬 이동
+    private void Village1()
+    {
+        if (sword1.transform.position.y < 0f)
+        {
+            sword1.transform.position += new Vector3(0f, upgradePower.power, 0f);
+        }
+        else
+        {
+            sword1.transform.position = new Vector3(0f, 0f, 0f);
+            //미니 게임 이동
+        }
+    }
 }
