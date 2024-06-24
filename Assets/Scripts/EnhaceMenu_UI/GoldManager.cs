@@ -5,6 +5,8 @@ public class GoldManager : MonoBehaviour
 {
     public static GoldManager Instance { get; private set; }
 
+    public GameData gameData;
+
     public int gold = 0;
     public int goldPerClick = 10; // ±âº» °ñµå È¹µæ·®
     public TextMeshProUGUI goldText;
@@ -43,12 +45,13 @@ public class GoldManager : MonoBehaviour
         return false;
     }
 
-    private void UpdateGoldText()
+    public void UpdateGoldText()
     {
         if (goldText != null)
         {
             goldText.text = "" + gold.ToString();
         }
+        gameData.money = gold;
     }
 
     // °ñµå È¹µæ·®À» Áõ°¡½ÃÅ°´Â ¸Þ¼­µå
@@ -56,6 +59,7 @@ public class GoldManager : MonoBehaviour
     {
         goldPerClick += amount;
         UpdateUpgradeCostText();
+        gameData.moneyUpgrade = goldPerClick;
     }
 
     public void UpdateUpgradeCostText()

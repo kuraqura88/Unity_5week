@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public int currentScore;
     public int currentMoney;
+    public int currentMoneyUpgrade;
+    public int currentCriticalUpgrade;
 
     private void Awake()
     {
@@ -55,8 +57,10 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            gameData.GameScore = currentScore;
-            gameData.GameMoney = currentMoney;
+            gameData.score = currentScore;
+            gameData.money = currentMoney;
+            gameData.moneyUpgrade = currentMoneyUpgrade;
+            gameData.criticalUpgrade = currentCriticalUpgrade;
             yield return new WaitForSeconds(saveInterval);
         }
     }
