@@ -20,6 +20,11 @@ public class StageManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        LoadStageData();
+    }
+
     void InitializeStages()
     {
         int stageCount = 3; // 스테이지 개수
@@ -42,5 +47,22 @@ public class StageManager : MonoBehaviour
             return;
         }
         stageCleared[stageIndex] = true;
+        SaveStageData();
+    }
+
+    void SaveStageData()
+    {
+        GameData gameData = DataManager.instance.GameLoad() ?? new GameData();
+        gameData.isClear = stageCleared;
+        DataManager.instance.GameSave(gameData);
+    }
+
+    void LoadStageData()
+    {
+        GameData gameData = DataManager.instance.GameLoad();
+        if (gameData != null && gameData.isClear != null)
+        {
+            stageCleared = gameData.isClear;
+        }
     }
 }

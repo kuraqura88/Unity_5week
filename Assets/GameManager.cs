@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     private GameData gameData;
-    private float saveInterval = 0.1f;
+    private float saveInterval = 1f;
     private Coroutine autoSaveContinue;
 
     public int currentScore;
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator AutoSave()
     {
-        while(true)
+        while (true)
         {
             gameData.GameScore = currentScore;
             gameData.GameMoney = currentMoney;
