@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CriticalUpgrade : MonoBehaviour
 {
-    private UpgradePower upgradePower;
+    public UpgradePower upgradePower;
     private GameData gameData;
 
     public TextMeshProUGUI criticalText;

@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[System.Serializable]
 
 public class GameData
 {
+
     public int score = 0; // 점수
     public int money = 0; // 모은 골드
     public int moneyUpgrade = 0; // 골드 수급량 업그레이드 수치
