@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     public int currentScore;
     public int currentMoney;
     public int currentMoneyUpgrade;
-    public int currentCriticalUpgrade;
+    public float currentCriticalUpgrade;
+    public int currentCriticalUpgradeCost;
 
     private void Awake()
     {
@@ -33,15 +34,20 @@ public class GameManager : MonoBehaviour
         {
             gameData = new GameData();
         }
-    }
-
-    private void Update()
-    {
+        else
+        {
+            gameData.score = currentScore;
+            gameData.money = currentMoney;
+            gameData.moneyUpgrade = currentMoneyUpgrade;
+            gameData.criticalUpgrade = currentCriticalUpgrade;
+            gameData.criticalUpgradeCost = currentCriticalUpgradeCost;
+        }
         StartAutoSave();
     }
 
     void OnApplicationQuit()
     {
+        SaveGameData();
         DataManager.instance.GameSave(gameData);
     }
 
@@ -57,11 +63,18 @@ public class GameManager : MonoBehaviour
     {
         while (true)
         {
-            gameData.score = currentScore;
-            gameData.money = currentMoney;
-            gameData.moneyUpgrade = currentMoneyUpgrade;
-            gameData.criticalUpgrade = currentCriticalUpgrade;
+            SaveGameData();
+            DataManager.instance.GameSave(gameData);
             yield return new WaitForSeconds(saveInterval);
         }
+    }
+
+    private void SaveGameData()
+    {
+        gameData.score = currentScore;
+        gameData.money = currentMoney;
+        gameData.moneyUpgrade = currentMoneyUpgrade;
+        gameData.criticalUpgrade = currentCriticalUpgrade;
+        gameData.criticalUpgradeCost = currentCriticalUpgradeCost;
     }
 }

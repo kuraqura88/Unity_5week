@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CriticalUpgrade : MonoBehaviour
 {
     public UpgradePower upgradePower;
-    private GameData gameData;
 
     public TextMeshProUGUI criticalText;
 
@@ -26,8 +26,7 @@ public class CriticalUpgrade : MonoBehaviour
         {
             Debug.Log("크리티컬 확률이 이미 100%입니다.");
         }
-        gameData.criticalUpgrade = critical;
-        gameData.criticalUpgradeCost = upgradeCost;
+        SaveData();
     }
 
     public bool CriticalHit()
@@ -44,5 +43,14 @@ public class CriticalUpgrade : MonoBehaviour
             baseDamage *= 2;
         }
         return baseDamage;
+    }
+
+    private void SaveData()
+    {
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.currentCriticalUpgrade = critical;
+            GameManager.instance.currentCriticalUpgradeCost = upgradeCost;
+        }
     }
 }

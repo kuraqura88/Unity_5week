@@ -13,6 +13,11 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
 
     private int clickCount = 0;
 
+    private void Start()
+    {
+        DataManager.instance.GameLoad();
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         Vector2 mousePosition = eventData.position;
