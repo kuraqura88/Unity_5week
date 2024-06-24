@@ -54,7 +54,7 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                swords[i].anchoredPosition = new Vector2(0f, 0f);
+                swords[i].anchoredPosition = new Vector2(0f, 200f);
                 //미니 게임 이동
             }
         }
