@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ClickEvent : MonoBehaviour, IPointerClickHandler
@@ -16,12 +17,56 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
 
         if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, mousePosition, eventData.pressEventCamera))
         {
-            // ※ 스테이지에 따른 변동 필요
             Village();
             Debug.Log("올라감");
         }
     }
 
+    private void Village()
+    {
+        for (int i = 0; i < swords.Length; i++)
+        {
+            if (swords[i].anchoredPosition.y < 200f)
+            {
+                swords[i].anchoredPosition += new Vector2(0f, upgradePower.power);
+            }
+            else
+            {
+                if (swords[0].anchoredPosition.y >= 200f)
+                {
+                    //2초 뒤 미니 게임 이동
+                    Invoke("GameSceneChange1", 2);
+                    swords[0].gameObject.SetActive(false);
+                    swords[1].gameObject.SetActive(true);
+                }
+
+                if (swords[1].anchoredPosition.y >= 200f)
+                {
+                    //2초 뒤 미니 게임 이동
+                    Invoke("GameSceneChange1", 2);
+                    swords[1].gameObject.SetActive(false);
+                    swords[2].gameObject.SetActive(true);
+                }
+
+                if (swords[2].anchoredPosition.y >= 200f)
+                {
+                    //2초 뒤 미니 게임 이동
+                    Invoke("GameSceneChange2", 2);
+                }
+            }
+        }
+    }
+
+    private void GameSceneChange1()
+    {
+        SceneManager.LoadScene("Main");
+    }
+    
+    private void GameSceneChange2()
+    {
+        SceneManager.LoadScene("Map01");
+    }
+    
     //public void OnMouse(InputValue value)
     //{
     //    if (value.isPressed)
@@ -43,20 +88,4 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
     //        }
     //    }
     //}
-
-    private void Village()
-    {
-        for (int i = 0; i < swords.Length; i++)
-        {
-            if (swords[i].anchoredPosition.y < 200f)
-            {
-                swords[i].anchoredPosition += new Vector2(0f, upgradePower.power);
-            }
-            else
-            {
-                swords[i].anchoredPosition = new Vector2(0f, 200f);
-                //미니 게임 이동
-            }
-        }
-    }
 }
