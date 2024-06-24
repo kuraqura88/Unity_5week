@@ -47,7 +47,7 @@ public class GoldManager : MonoBehaviour
     {
         if (goldText != null)
         {
-            goldText.text = "Gold: " + gold.ToString();
+            goldText.text = "" + gold.ToString();
         }
     }
 
@@ -62,7 +62,7 @@ public class GoldManager : MonoBehaviour
     {
         if (upgradeCostText != null)
         {
-            upgradeCostText.text = "Upgrade Cost: " + upgradeCost.ToString();
+            upgradeCostText.text = "" + upgradeCost.ToString();
         }
     }
 }

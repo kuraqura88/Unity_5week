@@ -10,6 +10,8 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
 
     public RectTransform[] swords;
 
+    private int clickCount = 0;
+
     public void OnPointerClick(PointerEventData eventData)
     {
         Vector2 mousePosition = eventData.position;
@@ -19,6 +21,18 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
         {
             Village();
             Debug.Log("올라감");
+        }
+
+        clickCount++;
+
+        // 10번 클릭할 때마다 골드 증가
+        if (clickCount >= 10)
+        {
+            if (GoldManager.Instance != null)
+            {
+                GoldManager.Instance.AddGold(GoldManager.Instance.goldPerClick); // 강화된 골드 획득량 적용
+            }
+            clickCount = 0; // 클릭 횟수 초기화
         }
     }
 
