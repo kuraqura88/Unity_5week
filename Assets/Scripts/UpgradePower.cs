@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +13,7 @@ public class UpgradePower : MonoBehaviour
 
     private void Awake()
     {
-        power = 0.01f;
+        power = 3f;
     }
 
     private void Start()
@@ -28,7 +26,7 @@ public class UpgradePower : MonoBehaviour
         if (gold >= upgradeCost)
         {
             gold -= upgradeCost;
-            power += 0.05f;
+            power += 3f;
         }
     }
 }
