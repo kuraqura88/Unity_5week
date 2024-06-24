@@ -1739,52 +1739,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760337704}
   m_CullTransparentMesh: 1
---- !u!1 &772132598
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 772132600}
-  - component: {fileID: 772132599}
-  m_Layer: 0
-  m_Name: GameObject (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &772132599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772132598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0837f3b88cef6f642887426a6fa08648, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  power: 0
-  upgradeButton: {fileID: 1008019741}
---- !u!4 &772132600
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772132598}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1255.0099, y: 910.35693, z: -6.151605}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &774979118
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,6 +3000,7 @@ GameObject:
   - component: {fileID: 1008019743}
   - component: {fileID: 1008019742}
   - component: {fileID: 1008019741}
+  - component: {fileID: 1008019744}
   m_Layer: 5
   m_Name: PowerUpBtn
   m_TagString: Untagged
@@ -3155,6 +3110,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008019738}
   m_CullTransparentMesh: 1
+--- !u!114 &1008019744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008019738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0837f3b88cef6f642887426a6fa08648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  power: 0
+  upgradeButton: {fileID: 1008019741}
 --- !u!1 &1040488305
 GameObject:
   m_ObjectHideFlags: 0
@@ -4099,7 +4068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d51da3afe3c4e42bb748a99ef64517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradePower: {fileID: 772132599}
+  upgradePower: {fileID: 1008019744}
   swords:
   - {fileID: 1191234415}
   - {fileID: 1040488306}
@@ -6131,4 +6100,3 @@ SceneRoots:
   - {fileID: 1499139345}
   - {fileID: 1930906212}
   - {fileID: 1399297930}
-  - {fileID: 772132600}
