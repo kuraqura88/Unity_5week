@@ -7,10 +7,16 @@ using UnityEngine.UI;
 public class ClickEvent : MonoBehaviour, IPointerClickHandler
 {
     public UpgradePower upgradePower;
+    public CriticalUpgrade criticalUpgrade;
 
     public RectTransform[] swords;
 
     private int clickCount = 0;
+
+    private void Start()
+    {
+        DataManager.instance.GameLoad();
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -43,6 +49,7 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
             if (swords[i].anchoredPosition.y < 200f)
             {
                 swords[i].anchoredPosition += new Vector2(0f, upgradePower.power);
+                swords[i].anchoredPosition += new Vector2(0f, criticalUpgrade.CriticalDamage());
             }
             else
             {

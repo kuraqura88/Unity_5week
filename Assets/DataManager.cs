@@ -23,7 +23,7 @@ public class DataManager : MonoBehaviour
 
     private void Start()
     {
-        filePath = Path.Combine(Application.persistentDataPath, "GameData.json");
+        filePath = Path.Combine(Application.streamingAssetsPath, "GameData.json");
     }
 
     public void GameSave(GameData gameData)
