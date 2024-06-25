@@ -8,6 +8,12 @@ public class UpgradeButton : MonoBehaviour
 
     private Button button;
 
+
+    private void Awake()
+    {
+        goldManager = GoldManager.Instance;
+    }
+
     private void Start()
     {
         if (upgradeButton != null)
@@ -16,6 +22,12 @@ public class UpgradeButton : MonoBehaviour
         }
         button = GetComponent<Button>();
         button.onClick.AddListener(OnButtonClick);
+
+        // 초기 업그레이드 비용 텍스트 업데이트
+        if (goldManager != null)
+        {
+            goldManager.UpdateUpgradeCostText();
+        }
     }
 
     private void OnUpgradeButtonClick()

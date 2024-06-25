@@ -12,7 +12,7 @@ public class GoldManager : MonoBehaviour
 
     // 업그레이드 비용 변수
     public int upgradeCost = 50;
-    public TextMeshProUGUI upgradeCostText;
+    public TextMeshProUGUI goldUpgradeCostText;
 
     private void Awake()
     {
@@ -38,11 +38,11 @@ public class GoldManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 씬이 로드된 후 goldText를 찾아 설정
-        FindGoldTextInScene();
+        // 씬이 로드된 후 goldText와 업그레이드 텍스트를 찾아 설정
+        FindTextsInScene();
     }
 
-    private void FindGoldTextInScene()
+    private void FindTextsInScene()
     {
         // goldText를 찾아서 설정
         GameObject goldTextObject = GameObject.FindWithTag("GoldText");
@@ -50,20 +50,12 @@ public class GoldManager : MonoBehaviour
         {
             goldText = goldTextObject.GetComponent<TextMeshProUGUI>();
         }
-        else
-        {
-            Debug.LogWarning("GoldText 오브젝트를 찾을 수 없습니다.");
-        }
 
-        // upgradeCostText도 동일하게 설정
-        GameObject upgradeCostTextObject = GameObject.FindWithTag("UpgradeCostText");
-        if (upgradeCostTextObject != null)
+        // goldUpgradeCostText 설정
+        GameObject goldUpgradeCostTextObject = GameObject.FindWithTag("GoldUpgradeCostText");
+        if (goldUpgradeCostTextObject != null)
         {
-            upgradeCostText = upgradeCostTextObject.GetComponent<TextMeshProUGUI>();
-        }
-        else
-        {
-            Debug.LogWarning("UpgradeCostText 오브젝트를 찾을 수 없습니다.");
+            goldUpgradeCostText = goldUpgradeCostTextObject.GetComponent<TextMeshProUGUI>();
         }
 
         // 텍스트 업데이트
@@ -94,10 +86,6 @@ public class GoldManager : MonoBehaviour
         {
             goldText.text = gold.ToString();
         }
-        else
-        {
-            Debug.LogWarning("goldText가 설정되지 않았습니다.");
-        }
     }
 
     // 골드 획득량을 증가시키는 메서드
@@ -109,13 +97,9 @@ public class GoldManager : MonoBehaviour
 
     public void UpdateUpgradeCostText()
     {
-        if (upgradeCostText != null)
+        if (goldUpgradeCostText != null)
         {
-            upgradeCostText.text = upgradeCost.ToString();
-        }
-        else
-        {
-            Debug.LogWarning("upgradeCostText가 설정되지 않았습니다.");
+            goldUpgradeCostText.text = upgradeCost.ToString();
         }
     }
 }
