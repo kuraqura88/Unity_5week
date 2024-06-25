@@ -9,8 +9,11 @@ TagManager:
   - Start
   - Enemy
   - GoldText
-  - UpgradeCostText
   - CriticalText
+  - GoldUpgradeCostText
+  - CriticalUpgradeCostText
+  - PowerUpgradeCostText
+  - PowerText
   layers:
   - Default
   - TransparentFX
