@@ -2133,6 +2133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageIndex: 0
+  buttonIndex: 0
 --- !u!114 &785159648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4614,6 +4615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageIndex: 1
+  buttonIndex: 1
 --- !u!114 &1424792173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4959,6 +4961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stageIndex: 2
+  buttonIndex: 2
 --- !u!114 &1486671805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6323,7 +6326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00eefa2250214ec4abb77ada3e9ca472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defeatButton: {fileID: 1605274666}
 --- !u!1 &1930906211
 GameObject:
   m_ObjectHideFlags: 0
