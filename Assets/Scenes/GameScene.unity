@@ -1220,9 +1220,9 @@ RectTransform:
   - {fileID: 1948996561}
   m_Father: {fileID: 1726065428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1587.215, y: -713.7833}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 587.57, y: 200.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &536422285
@@ -2322,6 +2322,7 @@ GameObject:
   - component: {fileID: 825494585}
   - component: {fileID: 825494584}
   - component: {fileID: 825494583}
+  - component: {fileID: 825494586}
   m_Layer: 5
   m_Name: CriticalUpBtn
   m_TagString: Untagged
@@ -2344,9 +2345,9 @@ RectTransform:
   - {fileID: 210228134}
   m_Father: {fileID: 1726065428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1587.215, y: -917.11664}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 587.57, y: 200.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &825494583
@@ -2392,7 +2393,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 825494584}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 825494586}
+        m_TargetAssemblyTypeName: CriticalUpgrade, Assembly-CSharp
+        m_MethodName: Upgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &825494584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,6 +2444,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825494580}
   m_CullTransparentMesh: 1
+--- !u!114 &825494586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825494580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92ceb196a6be6c41bfb6af90573c68d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradePower: {fileID: 772132599}
+  criticalText: {fileID: 1433702456}
+  critical: 0
 --- !u!1 &879653938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3023,9 +3051,9 @@ RectTransform:
   - {fileID: 760337705}
   m_Father: {fileID: 1726065428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1587.215, y: -510.45}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 587.57, y: 200.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1008019741
@@ -5089,7 +5117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1726065424
 MonoBehaviour:
   m_ObjectHideFlags: 0

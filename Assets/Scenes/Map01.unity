@@ -33863,7 +33863,7 @@ MonoBehaviour:
   selectbarLeft_quit: {fileID: 2027214662}
   selectbarRight_quit: {fileID: 908928954}
   CursorEffectSound: {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
-  nextStageName: Main
+  nextStageName: GameScene
 --- !u!114 &1758961485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34176,7 +34176,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1758961484}
         m_TargetAssemblyTypeName: Title, Assembly-CSharp
-        m_MethodName: NextStageButton
+        m_MethodName: NextStageButton1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
