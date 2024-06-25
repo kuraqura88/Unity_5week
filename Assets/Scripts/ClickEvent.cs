@@ -54,8 +54,6 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            swords[swordIndex].gameObject.SetActive(false);
-
             if (swordIndex >= swords.Length - 1)
             {
                 SceneManager.LoadScene("Main");

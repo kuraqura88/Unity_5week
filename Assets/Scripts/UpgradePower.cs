@@ -1,32 +1,67 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UpgradePower : MonoBehaviour
 {
-    private int gold = GoldManager.Instance.gold;
-    private int upgradeCost = 10;
-    public float power;
+    public TextMeshProUGUI powerText;
+    public TextMeshProUGUI powerUpgradeCostText;
 
     public Button upgradeButton;
 
-    //보유중인 골드 텍스트 연결
+    private int upgradeCost = 10;
+    public float power;
 
     private void Awake()
     {
         power = 3f;
+        UpdatePowerText();
+        UpdateUpgradeCostText();
     }
 
     private void Start()
     {
-        upgradeButton.onClick.AddListener(Upgrade);
+        if (upgradeButton != null)
+        {
+            upgradeButton.onClick.AddListener(Upgrade);
+        }
+        upgradeButton = GetComponent<Button>();
+        upgradeButton.onClick.AddListener(OnButtonClick);
     }
 
     public void Upgrade()
     {
-        if (gold >= upgradeCost)
+        if (GoldManager.Instance.gold >= upgradeCost)
         {
-            gold -= upgradeCost;
+            GoldManager.Instance.SpendGold(upgradeCost);
+            GoldManager.Instance.UpdateGoldText();
+
             power += 3f;
+            upgradeCost += 5;
+
+            UpdatePowerText();
+            UpdateUpgradeCostText();
         }
+    }
+
+    public void UpdatePowerText()
+    {
+        if (powerText != null)
+        {
+            powerText.text = power.ToString();
+        }
+    }
+
+    public void UpdateUpgradeCostText()
+    {
+        if (powerUpgradeCostText != null)
+        {
+            powerUpgradeCostText.text = upgradeCost.ToString();
+        }
+    }
+
+    void OnButtonClick()
+    {
+        SoundManager.Instance.PlayButtonClickSound();
     }
 }
