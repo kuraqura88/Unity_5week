@@ -25,6 +25,8 @@ public class UpgradePower : MonoBehaviour
         {
             upgradeButton.onClick.AddListener(Upgrade);
         }
+        upgradeButton = GetComponent<Button>();
+        upgradeButton.onClick.AddListener(OnButtonClick);
     }
 
     public void Upgrade()
@@ -56,5 +58,10 @@ public class UpgradePower : MonoBehaviour
         {
             powerUpgradeCostText.text = upgradeCost.ToString();
         }
+    }
+
+    void OnButtonClick()
+    {
+        SoundManager.Instance.PlayButtonClickSound();
     }
 }
