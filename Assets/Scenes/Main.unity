@@ -15418,7 +15418,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1161558702}
         m_TargetAssemblyTypeName: Title, Assembly-CSharp
-        m_MethodName: NextStageButton
+        m_MethodName: NextStageButton2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16630,7 +16630,7 @@ MonoBehaviour:
   selectbarLeft_quit: {fileID: 862974790}
   selectbarRight_quit: {fileID: 1357975979}
   CursorEffectSound: {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
-  nextStageName: Map01
+  nextStageName: LDH_Scene
 --- !u!82 &1161558703
 AudioSource:
   m_ObjectHideFlags: 0
