@@ -16,7 +16,7 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
     private void Start()
     {
         //임시로 유니티 상에서 다시 시작하면 처음부터
-        //PlayerPrefs.DeleteKey("SwordIndex");
+        PlayerPrefs.DeleteKey("SwordIndex");
 
         swordIndex = PlayerPrefs.GetInt("SwordIndex", 0);
         UpdateSword();

@@ -14,7 +14,7 @@ public class Ending : MonoBehaviour
     public void ExitToTitle()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("DevScene");
+        SceneManager.LoadScene("GameScene");
     }
 
     public void Quit()

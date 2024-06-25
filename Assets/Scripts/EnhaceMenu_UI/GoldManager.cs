@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GoldManager : MonoBehaviour
 {
@@ -19,11 +20,55 @@ public class GoldManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject); // 이 오브젝트는 씬 전환 시 파괴되지 않음
+            SceneManager.sceneLoaded += OnSceneLoaded; // 씬 로드 이벤트에 콜백 추가
         }
         else
         {
             Destroy(gameObject); // 이미 인스턴스가 존재하면 파괴
         }
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded; // 씬 로드 이벤트에서 콜백 제거
+        }
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // 씬이 로드된 후 goldText를 찾아 설정
+        FindGoldTextInScene();
+    }
+
+    private void FindGoldTextInScene()
+    {
+        // goldText를 찾아서 설정
+        GameObject goldTextObject = GameObject.FindWithTag("GoldText");
+        if (goldTextObject != null)
+        {
+            goldText = goldTextObject.GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.LogWarning("GoldText 오브젝트를 찾을 수 없습니다.");
+        }
+
+        // upgradeCostText도 동일하게 설정
+        GameObject upgradeCostTextObject = GameObject.FindWithTag("UpgradeCostText");
+        if (upgradeCostTextObject != null)
+        {
+            upgradeCostText = upgradeCostTextObject.GetComponent<TextMeshProUGUI>();
+        }
+        else
+        {
+            Debug.LogWarning("UpgradeCostText 오브젝트를 찾을 수 없습니다.");
+        }
+
+        // 텍스트 업데이트
+        UpdateGoldText();
+        UpdateUpgradeCostText();
     }
 
     public void AddGold(int amount)
@@ -47,7 +92,11 @@ public class GoldManager : MonoBehaviour
     {
         if (goldText != null)
         {
-            goldText.text = "" + gold.ToString();
+            goldText.text = gold.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("goldText가 설정되지 않았습니다.");
         }
     }
 
@@ -62,7 +111,11 @@ public class GoldManager : MonoBehaviour
     {
         if (upgradeCostText != null)
         {
-            upgradeCostText.text = "" + upgradeCost.ToString();
+            upgradeCostText.text = upgradeCost.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("upgradeCostText가 설정되지 않았습니다.");
         }
     }
 }

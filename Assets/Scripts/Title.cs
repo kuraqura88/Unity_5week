@@ -60,7 +60,7 @@ public class Title : MonoBehaviour
     }
     public void BackToTheTitle()
     {
-        SceneManager.LoadScene("DevScene"); 
+        SceneManager.LoadScene("GameScene"); 
         Time.timeScale = 1.0f;
     }
     public void NextStageButton1()
@@ -70,12 +70,23 @@ public class Title : MonoBehaviour
 
         SetSwordIndex(nextSwordIndex);
 
+        void OnStageCleared(int stageIndex) // 클리어시 호출
+        {
+            StageManager.Instance.ClearStage(stageIndex);
+        }
+
         SceneManager.LoadScene(nextStageName);
         Time.timeScale = 1.0f;
     }
     public void NextStageButton2()
     {
         SetSwordIndex(2);
+
+        void OnStageCleared(int stageIndex) // 클리어시 호출
+        {
+            StageManager.Instance.ClearStage(stageIndex);
+        }
+
         SceneManager.LoadScene(nextStageName);
         Time.timeScale = 1.0f;
     }

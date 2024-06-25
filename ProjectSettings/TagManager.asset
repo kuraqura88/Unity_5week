@@ -8,6 +8,8 @@ TagManager:
   - Boundary
   - Start
   - Enemy
+  - GoldText
+  - UpgradeCostText
   layers:
   - Default
   - TransparentFX
