@@ -6,13 +6,23 @@ using UnityEngine;
 
 public class CriticalUpgrade : MonoBehaviour
 {
-    public UpgradePower upgradePower;
+    public static CriticalUpgrade instance;
 
     public TextMeshProUGUI criticalText;
 
-    private int upgradeCost = 10;
+    public int upgradeCost = 10;
     public float critical = 0f;
 
+    private void Awake()
+    {
+        LoadCritical();
+        GameObject criticalTextObject = GameObject.FindWithTag("CriticalText");
+        if (criticalText != null)
+        {
+            criticalText = criticalTextObject.GetComponent<TextMeshProUGUI>();
+        }
+        UpdateCriticalText();
+    }
     public void Upgrade()
     {
         if (GoldManager.Instance.gold >= upgradeCost)
@@ -21,12 +31,13 @@ public class CriticalUpgrade : MonoBehaviour
             upgradeCost += 5;
             GoldManager.Instance.SpendGold(upgradeCost);
             GoldManager.Instance.UpdateGoldText();
+            UpdateCriticalText();
+            SaveCritical();
         }
         else if (critical >= 100)
         {
             Debug.Log("크리티컬 확률이 이미 100%입니다.");
         }
-        SaveData();
     }
 
     public bool CriticalHit()
@@ -37,7 +48,7 @@ public class CriticalUpgrade : MonoBehaviour
 
     public float CriticalDamage()
     {
-        float baseDamage = upgradePower.power;
+        float baseDamage = DataManager.instance.power;
         if (CriticalHit())
         {
             baseDamage *= 2;
@@ -45,12 +56,26 @@ public class CriticalUpgrade : MonoBehaviour
         return baseDamage;
     }
 
-    private void SaveData()
+    public void UpdateCriticalText()
     {
-        if (GameManager.instance != null)
+        if (criticalText != null)
         {
-            GameManager.instance.currentCriticalUpgrade = critical;
-            GameManager.instance.currentCriticalUpgradeCost = upgradeCost;
+            criticalText.text = critical.ToString();
+        }
+    }
+
+    private void SaveCritical()
+    {
+        DataManager.instance.criticalUpgrade = critical;
+        DataManager.instance.criticalUpgradeCost = upgradeCost;
+    }
+
+    private void LoadCritical()
+    {
+        if (DataManager.instance.criticalUpgrade >= 0f && DataManager.instance.criticalUpgradeCost >= 0)
+        {
+            critical = DataManager.instance.criticalUpgrade;
+            upgradeCost = DataManager.instance.criticalUpgradeCost;
         }
     }
 }

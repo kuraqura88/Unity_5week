@@ -7,15 +7,19 @@ using UnityEngine.UI;
 public class ClickEvent : MonoBehaviour, IPointerClickHandler
 {
     public UpgradePower upgradePower;
-    public CriticalUpgrade criticalUpgrade;
 
     public RectTransform[] swords;
 
     private int clickCount = 0;
+    private int swordIndex;
 
     private void Start()
     {
-        DataManager.instance.GameLoad();
+        //임시로 유니티 상에서 다시 시작하면 처음부터
+        PlayerPrefs.DeleteKey("SwordIndex");
+
+        swordIndex = PlayerPrefs.GetInt("SwordIndex", 0);
+        UpdateSword();
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -26,7 +30,6 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
         if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, mousePosition, eventData.pressEventCamera))
         {
             Village();
-            Debug.Log("올라감");
         }
 
         clickCount++;
@@ -44,69 +47,32 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
 
     private void Village()
     {
-        for (int i = 0; i < swords.Length; i++)
+        if (swords[swordIndex].anchoredPosition.y < 200f)
         {
-            if (swords[i].anchoredPosition.y < 200f)
+            swords[swordIndex].anchoredPosition += new Vector2(0f, upgradePower.power);
+        }
+        else
+        {
+            swords[swordIndex].gameObject.SetActive(false);
+
+            if (swordIndex >= swords.Length - 1)
             {
-                swords[i].anchoredPosition += new Vector2(0f, upgradePower.power);
-                swords[i].anchoredPosition += new Vector2(0f, criticalUpgrade.CriticalDamage());
+                SceneManager.LoadScene("Main");
+                UpdateSword();
             }
             else
             {
-                if (swords[0].anchoredPosition.y >= 200f)
-                {
-                    //2초 뒤 미니 게임 이동
-                    Invoke("GameSceneChange1", 2);
-                    swords[0].gameObject.SetActive(false);
-                    swords[1].gameObject.SetActive(true);
-                }
-
-                if (swords[1].anchoredPosition.y >= 200f)
-                {
-                    //2초 뒤 미니 게임 이동
-                    Invoke("GameSceneChange1", 2);
-                    swords[1].gameObject.SetActive(false);
-                    swords[2].gameObject.SetActive(true);
-                }
-
-                if (swords[2].anchoredPosition.y >= 200f)
-                {
-                    //2초 뒤 미니 게임 이동
-                    Invoke("GameSceneChange2", 2);
-                }
+                SceneManager.LoadScene("Map01");
+                UpdateSword();
             }
         }
     }
 
-    private void GameSceneChange1()
+    private void UpdateSword()
     {
-        SceneManager.LoadScene("Main");
+        for (int i = 0; i < swords.Length; i++)
+        {
+            swords[i].gameObject.SetActive(i == swordIndex);
+        }
     }
-    
-    private void GameSceneChange2()
-    {
-        SceneManager.LoadScene("Map01");
-    }
-    
-    //public void OnMouse(InputValue value)
-    //{
-    //    if (value.isPressed)
-    //    {
-    //        Debug.Log("클릭함");
-    //        //마우스 위치
-    //        Vector2 mousePosition = Mouse.current.position.ReadValue();
-    //        //마우스 위치 -> 월드 좌표
-    //        Vector3 worldPoint = Camera.main.ScreenToWorldPoint(mousePosition);
-    //        RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
-
-    //        if (hit.collider != null 
-    //            && hit.collider.gameObject == gameObject)
-    //        {
-    //            // ※ 스테이지에 따른 변동 필요
-    //            Village();
-    //            Debug.Log("올라감");
-
-    //        }
-    //    }
-    //}
 }

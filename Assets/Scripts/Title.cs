@@ -60,12 +60,40 @@ public class Title : MonoBehaviour
     }
     public void BackToTheTitle()
     {
-        SceneManager.LoadScene("DevScene");
+        SceneManager.LoadScene("GameScene"); 
         Time.timeScale = 1.0f;
     }
-    public void NextStageButton()
+    public void NextStageButton1()
     {
+        int currentSwordIndex = PlayerPrefs.GetInt("SwordIndex", 0);
+        int nextSwordIndex = (currentSwordIndex == 0) ? 1 : 2;
+
+        SetSwordIndex(nextSwordIndex);
+
+        void OnStageCleared(int stageIndex) // 클리어시 호출
+        {
+            StageManager.Instance.ClearStage(stageIndex);
+        }
+
         SceneManager.LoadScene(nextStageName);
         Time.timeScale = 1.0f;
+    }
+    public void NextStageButton2()
+    {
+        SetSwordIndex(2);
+
+        void OnStageCleared(int stageIndex) // 클리어시 호출
+        {
+            StageManager.Instance.ClearStage(stageIndex);
+        }
+
+        SceneManager.LoadScene(nextStageName);
+        Time.timeScale = 1.0f;
+    }
+
+    private void SetSwordIndex(int index)
+    {
+        PlayerPrefs.SetInt("SwordIndex", index);
+        PlayerPrefs.Save();
     }
 }

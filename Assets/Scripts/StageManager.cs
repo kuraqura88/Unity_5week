@@ -22,7 +22,7 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-        LoadStageData();
+        
     }
 
     void InitializeStages()
@@ -52,17 +52,7 @@ public class StageManager : MonoBehaviour
 
     void SaveStageData()
     {
-        GameData gameData = DataManager.instance.GameLoad() ?? new GameData();
-        gameData.isClear = stageCleared;
-        DataManager.instance.GameSave(gameData);
-    }
-
-    void LoadStageData()
-    {
-        GameData gameData = DataManager.instance.GameLoad();
-        if (gameData != null && gameData.isClear != null)
-        {
-            stageCleared = gameData.isClear;
-        }
+        DataManager.instance.isClear = stageCleared;
+        DataManager.instance.GameSave();
     }
 }
