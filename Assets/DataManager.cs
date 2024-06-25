@@ -9,7 +9,11 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
 
-    private string filePath;
+    public int money = 0; // 모은 골드
+    public int moneyUpgrade = 0; // 골드 수급량 업그레이드 수치
+    public float criticalUpgrade = 0f; // 크리티컬 확률
+    public int criticalUpgradeCost = 0; // 크리티컬 확률 업그레이드 비용
+    public bool[] isClear = new bool[3];
 
     private void Awake()
     {
@@ -18,34 +22,26 @@ public class DataManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        return;
-    }
-
-    private void Start()
-    {
-        filePath = Path.Combine(Application.streamingAssetsPath, "GameData.json");
-    }
-
-    public void GameSave(GameData gameData)
-    {
-        string json = JsonUtility.ToJson(gameData);
-        File.WriteAllText(filePath, json);
-        Debug.Log("게임진행 상황이 저장 되었습니다.");
-    }
-
-    public GameData GameLoad()
-    {
-        if (File.Exists(filePath))
-        {
-            string json = File.ReadAllText(filePath);
-            GameData gameData = JsonUtility.FromJson<GameData>(json);
-            Debug.Log("저장 데이터를 불러왔습니다.");
-            return gameData;
-        }
         else
         {
-            Debug.Log("저장된 데이터가 없습니다.");
-            return null;
+            Destroy(gameObject);
         }
+    }
+
+    public void GameSave()
+    {
+        PlayerPrefs.SetInt("Money", GoldManager.Instance.gold);
+        PlayerPrefs.SetInt("MoneyUpgrade", GoldManager.Instance.upgradeCost);
+        PlayerPrefs.SetFloat("CriticalUpgrade", CriticalUpgrade.instance.critical);
+        PlayerPrefs.SetInt("CriticalUpgradeCost", CriticalUpgrade.instance.upgradeCost);
+        PlayerPrefs.Save();
+    }
+    
+    public void GameLoad()
+    {
+        GoldManager.Instance.gold = PlayerPrefs.GetInt("Money", 0);
+        GoldManager.Instance.upgradeCost = PlayerPrefs.GetInt("MoneyUpgrade", 0);
+        CriticalUpgrade.instance.critical = PlayerPrefs.GetFloat("CriticalUpgrade", 0f);
+        CriticalUpgrade.instance.upgradeCost = PlayerPrefs.GetInt("CriticalUpgradeCost", 0);
     }
 }

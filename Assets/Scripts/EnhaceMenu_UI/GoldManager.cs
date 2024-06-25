@@ -49,7 +49,6 @@ public class GoldManager : MonoBehaviour
         {
             goldText.text = "" + gold.ToString();
         }
-        SaveData();
     }
 
     // °ñµå È¹µæ·®À» Áõ°¡½ÃÅ°´Â ¸Þ¼­µå
@@ -57,7 +56,6 @@ public class GoldManager : MonoBehaviour
     {
         goldPerClick += amount;
         UpdateUpgradeCostText();
-        SaveData();
     }
 
     public void UpdateUpgradeCostText()
@@ -65,15 +63,6 @@ public class GoldManager : MonoBehaviour
         if (upgradeCostText != null)
         {
             upgradeCostText.text = "" + upgradeCost.ToString();
-        }
-    }
-
-    private void SaveData()
-    {
-        if (GameManager.instance != null)
-        {
-            GameManager.instance.currentMoney = gold;
-            GameManager.instance.currentMoneyUpgrade = upgradeCost;
         }
     }
 }

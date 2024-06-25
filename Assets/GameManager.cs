@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private GameData gameData;
     private float saveInterval = 1f;
     private Coroutine autoSaveContinue;
 
@@ -29,52 +28,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        gameData = DataManager.instance.GameLoad();
-        if (gameData == null)
-        {
-            gameData = new GameData();
-        }
-        else
-        {
-            gameData.score = currentScore;
-            gameData.money = currentMoney;
-            gameData.moneyUpgrade = currentMoneyUpgrade;
-            gameData.criticalUpgrade = currentCriticalUpgrade;
-            gameData.criticalUpgradeCost = currentCriticalUpgradeCost;
-        }
-        StartAutoSave();
+        DataManager.instance.GameLoad();
     }
 
     void OnApplicationQuit()
     {
-        SaveGameData();
-        DataManager.instance.GameSave(gameData);
-    }
-
-    public void StartAutoSave()
-    {
-        if (autoSaveContinue == null)
-        {
-            autoSaveContinue = StartCoroutine(AutoSave());
-        }
-    }
-
-    IEnumerator AutoSave()
-    {
-        while (true)
-        {
-            SaveGameData();
-            DataManager.instance.GameSave(gameData);
-            yield return new WaitForSeconds(saveInterval);
-        }
-    }
-
-    private void SaveGameData()
-    {
-        gameData.score = currentScore;
-        gameData.money = currentMoney;
-        gameData.moneyUpgrade = currentMoneyUpgrade;
-        gameData.criticalUpgrade = currentCriticalUpgrade;
-        gameData.criticalUpgradeCost = currentCriticalUpgradeCost;
+        DataManager.instance.GameSave();
     }
 }

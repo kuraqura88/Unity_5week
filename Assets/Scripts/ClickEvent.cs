@@ -15,7 +15,7 @@ public class ClickEvent : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        DataManager.instance.GameLoad();
+        
     }
 
     public void OnPointerClick(PointerEventData eventData)
