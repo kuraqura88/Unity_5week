@@ -4022,9 +4022,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradePower: {fileID: 772132599}
-  criticalUpgrade: {fileID: 825494586}
   swords:
   - {fileID: 1191234415}
+  - {fileID: 1040488306}
+  - {fileID: 1102826904}
 --- !u!1 &1399297928
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,12 +60,29 @@ public class Title : MonoBehaviour
     }
     public void BackToTheTitle()
     {
-        SceneManager.LoadScene("DevScene");
+        SceneManager.LoadScene("DevScene"); 
         Time.timeScale = 1.0f;
     }
-    public void NextStageButton()
+    public void NextStageButton1()
     {
+        int currentSwordIndex = PlayerPrefs.GetInt("SwordIndex", 0);
+        int nextSwordIndex = (currentSwordIndex == 0) ? 1 : 2;
+
+        SetSwordIndex(nextSwordIndex);
+
         SceneManager.LoadScene(nextStageName);
         Time.timeScale = 1.0f;
+    }
+    public void NextStageButton2()
+    {
+        SetSwordIndex(2);
+        SceneManager.LoadScene(nextStageName);
+        Time.timeScale = 1.0f;
+    }
+
+    private void SetSwordIndex(int index)
+    {
+        PlayerPrefs.SetInt("SwordIndex", index);
+        PlayerPrefs.Save();
     }
 }
