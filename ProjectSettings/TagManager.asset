@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - GoldText
   - UpgradeCostText
+  - CriticalText
   layers:
   - Default
   - TransparentFX

@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class UpgradePower : MonoBehaviour
 {
-    private int gold = 1000;
-    private int upgradeCost = 1000;
+    private int gold = GoldManager.Instance.gold;
+    private int upgradeCost = 10;
     public float power;
 
     public Button upgradeButton;

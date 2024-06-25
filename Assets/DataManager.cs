@@ -9,6 +9,7 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
 
+    public float power = 3f;
     public int money = 0; // 모은 골드
     public int moneyUpgrade = 0; // 골드 수급량 업그레이드 수치
     public float criticalUpgrade = 0f; // 크리티컬 확률
@@ -32,8 +33,8 @@ public class DataManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Money", GoldManager.Instance.gold);
         PlayerPrefs.SetInt("MoneyUpgrade", GoldManager.Instance.upgradeCost);
-        PlayerPrefs.SetFloat("CriticalUpgrade", CriticalUpgrade.instance.critical);
-        PlayerPrefs.SetInt("CriticalUpgradeCost", CriticalUpgrade.instance.upgradeCost);
+        PlayerPrefs.SetFloat("CriticalUpgrade", criticalUpgrade);
+        PlayerPrefs.SetInt("CriticalUpgradeCost", criticalUpgradeCost);
         PlayerPrefs.Save();
     }
     
@@ -41,7 +42,7 @@ public class DataManager : MonoBehaviour
     {
         GoldManager.Instance.gold = PlayerPrefs.GetInt("Money", 0);
         GoldManager.Instance.upgradeCost = PlayerPrefs.GetInt("MoneyUpgrade", 0);
-        CriticalUpgrade.instance.critical = PlayerPrefs.GetFloat("CriticalUpgrade", 0f);
-        CriticalUpgrade.instance.upgradeCost = PlayerPrefs.GetInt("CriticalUpgradeCost", 0);
+        criticalUpgrade = PlayerPrefs.GetFloat("CriticalUpgrade", 0f);
+        criticalUpgradeCost = PlayerPrefs.GetInt("CriticalUpgradeCost", 0);
     }
 }
